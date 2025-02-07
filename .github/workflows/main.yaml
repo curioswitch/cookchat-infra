@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   apply:
-    uses: curioswitch/cdktf-actions/.github/workflows/main.yaml@83ee91d15e11f470d9a690ee1d2966481caf47ca
+    uses: curioswitch/cdktf-actions/.github/workflows/main.yaml@a34a5c1eb67d85c179f2afa009d66ed59f4f18b5
     with:
       gcp_project_id: ${{ startsWith(github.ref_name, 'release/') && 'cookchat-prod' || 'cookchat-dev'}}
       gcp_project_number: ${{ startsWith(github.ref_name, 'release/') && '623397668020' || '408496405753'}}
