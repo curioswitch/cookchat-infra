@@ -2,16 +2,16 @@ import { ProjectService } from "@cdktf/provider-google/lib/project-service/index
 import { Construct } from "constructs";
 
 export interface GcpServicesConfig {
-	project: string;
+  project: string;
 }
 
 export class GcpServices extends Construct {
-	constructor(scope: Construct, config: GcpServicesConfig) {
-		super(scope, "gcp-services");
+  constructor(scope: Construct, config: GcpServicesConfig) {
+    super(scope, "gcp-services");
 
-		new ProjectService(this, "aiplatform", {
-			project: config.project,
-			service: "aiplatform.googleapis.com",
-		});
-	}
+    new ProjectService(this, "aiplatform", {
+      project: config.project,
+      service: "aiplatform.googleapis.com",
+    });
+  }
 }

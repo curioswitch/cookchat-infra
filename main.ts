@@ -7,15 +7,15 @@ const app = new App();
 new SysadminStack(app);
 
 new CookchatStack(app, {
-	environment: "dev",
-	project: "cookchat-dev",
-	domain: "alpha.cookchat.curioswitch.org",
+  environment: "dev",
+  project: "cookchat-dev",
+  domain: "alpha.cookchat.curioswitch.org",
 });
 
 new CookchatStack(app, {
-	environment: "prod",
-	project: "cookchat-prod",
-	domain: "cookchat.curioswitch.org",
+  environment: "prod",
+  project: "cookchat-prod",
+  domain: "cookchat.curioswitch.org",
 });
 
 app.synth();
