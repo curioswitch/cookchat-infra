@@ -1,0 +1,23 @@
+name: Main Build
+on:
+  push:
+    branches:
+      - main
+      - release/**
+    paths-ignore:
+      - stacks/sysadmin/**
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: terraform
+
+jobs:
+  apply:
+    uses: curioswitch/cdktf-actions/.github/workflows/main.yaml@83ee91d15e11f470d9a690ee1d2966481caf47ca
+    with:
+      gcp_project_id: ${{ startsWith(github.ref_name, 'release/') && 'cookchat-prod' || 'cookchat-dev'}}
+      gcp_project_number: ${{ startsWith(github.ref_name, 'release/') && '623397668020' || '408496405753'}}
