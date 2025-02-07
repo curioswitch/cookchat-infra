@@ -1,0 +1,21 @@
+name: PR Build
+on:
+  pull_request:
+    paths-ignore:
+      - stacks/sysadmin/**
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: terraform
+
+jobs:
+  plan:
+    if: github.event.pull_request.head.repo.fork != true
+    uses: curioswitch/cdktf-actions/.github/workflows/pr.yaml@83ee91d15e11f470d9a690ee1d2966481caf47ca
+    with:
+      gcp_project_id: cookchat-dev
+      gcp_project_number: 408496405753
