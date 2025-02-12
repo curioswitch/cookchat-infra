@@ -67,13 +67,13 @@
 
     "@cdktf/provider-github": ["@cdktf/provider-github@14.5.0", "", { "peerDependencies": { "cdktf": "^0.20.0", "constructs": "^10.3.0" } }, "sha512-WzWSH4WZDZFcO6xLZMmqO5AFTFm+axW6bEB5nwVkRiMhP16phy9R1XkIn6m+FzzGzOsTs7GjFTQ/3DhcXC7UPg=="],
 
-    "@cdktf/provider-google": ["@cdktf/provider-google@14.18.0", "", { "peerDependencies": { "cdktf": "^0.20.0", "constructs": "^10.3.0" } }, "sha512-/G1MN5vQjnGRNt3mL1xm7oVYE78mT5ODecYzGNUJZGbt6wFNMv7cWTfH3XB4zsBgjCJP4c6pO8y7aWrC4QKg9w=="],
+    "@cdktf/provider-google": ["@cdktf/provider-google@14.19.0", "", { "peerDependencies": { "cdktf": "^0.20.0", "constructs": "^10.3.0" } }, "sha512-QnGzRK30BH1BSX047EX2Y3Fq7XxB+4DXNC+6nr7VKUbYvmWkFFhmR68yJtIIU35sd5Ab8JyBj/W6OEf2wq5fWw=="],
 
-    "@cdktf/provider-google-beta": ["@cdktf/provider-google-beta@14.18.0", "", { "peerDependencies": { "cdktf": "^0.20.0", "constructs": "^10.3.0" } }, "sha512-jvR06SyYuA9f/nkhTXK9WYZSKhTmbu4hvbcEuOkLqT6jylKbM2msvMUNSrbiTLAgod/D4gZzXrfQCcKmBrVoXQ=="],
+    "@cdktf/provider-google-beta": ["@cdktf/provider-google-beta@14.19.0", "", { "peerDependencies": { "cdktf": "^0.20.0", "constructs": "^10.3.0" } }, "sha512-/X3ux5FZHOKAhLVwlVgY26x6p4hOLrjNApZFL/UyEoLkclNX2rXHpZ3irnASHYcniubuFxqdf905jzC7G5GB6g=="],
 
     "@cdktf/provider-schema": ["@cdktf/provider-schema@0.20.11", "", { "dependencies": { "@cdktf/commons": "0.20.11", "@cdktf/hcl2json": "0.20.11", "deepmerge": "4.3.1", "fs-extra": "11.2.0" } }, "sha512-PD3TcMVijU//Czk8uvtBAu6fQgPVBVcJRCILTq1Vq3e3qg0igNDZoRVxAvaCRVpp9wXtmVAjByX10vUhB42f+g=="],
 
-    "@curioswitch/cdktf-constructs": ["@curioswitch/cdktf-constructs@github:curioswitch/cdktf-constructs#99efd83", { "dependencies": { "@cdktf/provider-github": "^14.5.0", "@cdktf/provider-google": "^14.18.0", "@cdktf/provider-google-beta": "^14.18.0", "cdktf": "^0.20.11", "constructs": "^10.4.2" } }, "curioswitch-cdktf-constructs-99efd83"],
+    "@curioswitch/cdktf-constructs": ["@curioswitch/cdktf-constructs@github:curioswitch/cdktf-constructs#afe6225", { "dependencies": { "@cdktf/provider-github": "^14.5.0", "@cdktf/provider-google": "^14.19.0", "@cdktf/provider-google-beta": "^14.19.0", "cdktf": "^0.20.11", "constructs": "^10.4.2" } }, "curioswitch-cdktf-constructs-afe6225"],
 
     "@inquirer/checkbox": ["@inquirer/checkbox@1.5.2", "", { "dependencies": { "@inquirer/core": "^6.0.0", "@inquirer/type": "^1.1.6", "ansi-escapes": "^4.3.2", "chalk": "^4.1.2", "figures": "^3.2.0" } }, "sha512-CifrkgQjDkUkWexmgYYNyB5603HhTHI91vLFeQXh6qrTKiCMVASol01Rs1cv6LP/A2WccZSRlJKZhbaBIs/9ZA=="],
 
