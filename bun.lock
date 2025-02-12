@@ -5,8 +5,8 @@
       "name": "cookchat-infra",
       "dependencies": {
         "@cdktf/provider-github": "^14.5.0",
-        "@cdktf/provider-google": "^14.18.0",
-        "@cdktf/provider-google-beta": "^14.18.0",
+        "@cdktf/provider-google": "^14.19.0",
+        "@cdktf/provider-google-beta": "^14.19.0",
         "@curioswitch/cdktf-constructs": "github:curioswitch/cdktf-constructs#main",
         "cdktf": "^0.20.11",
         "constructs": "^10.4.2",
@@ -73,7 +73,7 @@
 
     "@cdktf/provider-schema": ["@cdktf/provider-schema@0.20.11", "", { "dependencies": { "@cdktf/commons": "0.20.11", "@cdktf/hcl2json": "0.20.11", "deepmerge": "4.3.1", "fs-extra": "11.2.0" } }, "sha512-PD3TcMVijU//Czk8uvtBAu6fQgPVBVcJRCILTq1Vq3e3qg0igNDZoRVxAvaCRVpp9wXtmVAjByX10vUhB42f+g=="],
 
-    "@curioswitch/cdktf-constructs": ["@curioswitch/cdktf-constructs@github:curioswitch/cdktf-constructs#afe6225", { "dependencies": { "@cdktf/provider-github": "^14.5.0", "@cdktf/provider-google": "^14.19.0", "@cdktf/provider-google-beta": "^14.19.0", "cdktf": "^0.20.11", "constructs": "^10.4.2" } }, "curioswitch-cdktf-constructs-afe6225"],
+    "@curioswitch/cdktf-constructs": ["@curioswitch/cdktf-constructs@github:curioswitch/cdktf-constructs#36489bd", { "dependencies": { "@cdktf/provider-github": "^14.5.0", "@cdktf/provider-google": "^14.19.0", "@cdktf/provider-google-beta": "^14.19.0", "cdktf": "^0.20.11", "constructs": "^10.4.2" } }, "curioswitch-cdktf-constructs-36489bd"],
 
     "@inquirer/checkbox": ["@inquirer/checkbox@1.5.2", "", { "dependencies": { "@inquirer/core": "^6.0.0", "@inquirer/type": "^1.1.6", "ansi-escapes": "^4.3.2", "chalk": "^4.1.2", "figures": "^3.2.0" } }, "sha512-CifrkgQjDkUkWexmgYYNyB5603HhTHI91vLFeQXh6qrTKiCMVASol01Rs1cv6LP/A2WccZSRlJKZhbaBIs/9ZA=="],
 
