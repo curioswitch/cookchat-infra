@@ -8,17 +8,17 @@
   },
   "dependencies": {
     "@cdktf/provider-github": "^14.6.0",
-    "@cdktf/provider-google": "^14.19.0",
-    "@cdktf/provider-google-beta": "^14.19.0",
-    "@cdktf/provider-random": "^11.1.0",
+    "@cdktf/provider-google": "^14.36.0",
+    "@cdktf/provider-google-beta": "^14.36.0",
+    "@cdktf/provider-random": "^11.1.1",
     "@curioswitch/cdktf-constructs": "github:curioswitch/cdktf-constructs#main",
-    "cdktf": "^0.20.11",
+    "cdktf": "^0.20.12",
     "constructs": "^10.4.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "cdktf-cli": "^0.20.11",
-    "typescript": "^5.7.3"
+    "cdktf-cli": "^0.20.12",
+    "typescript": "^5.9.3"
   },
   "packageManager": "bun@1.2.2",
   "volta": {
