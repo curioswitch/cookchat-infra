@@ -23,7 +23,7 @@ new CookchatStack(app, {
 new CookchatStack(app, {
   environment: "prod",
   project: "cookchat-prod",
-  domain: "cookchat.curioswitch.org",
+  domain: "coopii.app",
   googleAuthClientId: "",
   googleAuthClientSecretCiphertext: "",
   openaiAPIKeyCiphertext: "",

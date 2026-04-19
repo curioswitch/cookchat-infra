@@ -7,6 +7,7 @@ export interface GcpServicesConfig {
 
 export class GcpServices extends Construct {
   public readonly apiKeys: ProjectService;
+  public readonly cloudTasks: ProjectService;
 
   constructor(scope: Construct, config: GcpServicesConfig) {
     super(scope, "gcp-services");
@@ -19,6 +20,11 @@ export class GcpServices extends Construct {
     this.apiKeys = new ProjectService(this, "apikeys", {
       project: config.project,
       service: "apikeys.googleapis.com",
+    });
+
+    this.cloudTasks = new ProjectService(this, "cloud-tasks", {
+      project: config.project,
+      service: "cloudtasks.googleapis.com",
     });
 
     new ProjectService(this, "generativelanguage", {

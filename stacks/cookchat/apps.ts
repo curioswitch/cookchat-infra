@@ -1,9 +1,14 @@
 import { ApikeysKey } from "@cdktf/provider-google/lib/apikeys-key/index.js";
+import { CloudRunServiceIamMember } from "@cdktf/provider-google/lib/cloud-run-service-iam-member/index.js";
+import { CloudTasksQueueIamMember } from "@cdktf/provider-google/lib/cloud-tasks-queue-iam-member/index.js";
+import { CloudTasksQueue } from "@cdktf/provider-google/lib/cloud-tasks-queue/index.js";
 import { DataGoogleKmsSecret } from "@cdktf/provider-google/lib/data-google-kms-secret/index.js";
 import { ProjectIamCustomRole } from "@cdktf/provider-google/lib/project-iam-custom-role/index.js";
 import { ProjectIamMember } from "@cdktf/provider-google/lib/project-iam-member/index.js";
 import { SecretManagerSecretVersion } from "@cdktf/provider-google/lib/secret-manager-secret-version/index.js";
 import { SecretManagerSecret } from "@cdktf/provider-google/lib/secret-manager-secret/index.js";
+import { ServiceAccountIamMember } from "@cdktf/provider-google/lib/service-account-iam-member/index.js";
+import { ServiceAccount } from "@cdktf/provider-google/lib/service-account/index.js";
 import { StorageBucketIamMember } from "@cdktf/provider-google/lib/storage-bucket-iam-member/index.js";
 import type { StorageBucket } from "@cdktf/provider-google/lib/storage-bucket/index.js";
 import {
@@ -32,20 +37,31 @@ export class Apps extends Construct {
 
     const { project } = config.curiostack.config;
 
-    const frontendServerEnv: Record<string, string> = {
-      SEARCH_ENGINE: config.searchEngine,
-    };
-    if (config.authorizedEmailsCiphertext) {
-      const decryptedEmails = new DataGoogleKmsSecret(
-        this,
-        "authorized-emails",
-        {
-          cryptoKey: `${config.curiostack.project}/global/terraform/secrets`,
-          ciphertext: config.authorizedEmailsCiphertext,
-        },
-      );
-      frontendServerEnv.AUTHORIZATION_EMAILS = decryptedEmails.plaintext;
-    }
+    const aiPredictor = new ProjectIamCustomRole(this, "ai-predictor", {
+      project,
+      roleId: "aiPredictor",
+      title: "AI Predictor",
+      description: "Permission to perform predictions with managed AI models.",
+      permissions: [
+        "aiplatform.endpoints.predict",
+        "aiplatform.cachedContents.create",
+      ],
+    });
+
+    const taskInvoker = new ServiceAccount(this, "task-invoker", {
+      accountId: "task-invoker",
+    });
+
+    const tasksQueue = new CloudTasksQueue(this, "tasks-queue", {
+      name: "tasks-queue",
+      project,
+      location: config.curiostack.config.location,
+      stackdriverLoggingConfig: {
+        samplingRatio: 1,
+      },
+      dependsOn: [config.gcpServices.cloudTasks],
+    });
+
     const geminiApiKey = new ApikeysKey(this, "gemini-api-key", {
       project,
       name: "gemini-api",
@@ -102,10 +118,61 @@ export class Apps extends Construct {
       },
     );
 
+    const tasksServer = new CurioStackService(this, {
+      name: "tasks-server",
+      timeout: "600s",
+      envSecrets: {
+        GEMINI_API_KEY: geminiApiKeySecretVersion,
+      },
+      curiostack: config.curiostack,
+    });
+
+    new CloudRunServiceIamMember(this, "tasks-server-invoker", {
+      service: tasksServer.run.name,
+      role: "roles/run.invoker",
+      member: taskInvoker.member,
+    });
+
+    new ProjectIamMember(this, "tasks-server-firestore", {
+      project,
+      role: "roles/datastore.user",
+      member: tasksServer.serviceAccount.member,
+    });
+
+    new StorageBucketIamMember(this, "tasks-server-public-files", {
+      bucket: config.publicFilesBucket.name,
+      role: "roles/storage.objectUser",
+      member: tasksServer.serviceAccount.member,
+    });
+
+    new ProjectIamMember(this, "tasks-server-vertexai", {
+      project,
+      role: aiPredictor.name,
+      member: tasksServer.serviceAccount.member,
+    });
+
+    const frontendServerEnv: Record<string, string> = {
+      SEARCH_ENGINE: config.searchEngine,
+      TASKS_QUEUE: tasksQueue.id,
+      TASKS_INVOKER: taskInvoker.email,
+      TASKS_URL: tasksServer.run.uri,
+    };
+    if (config.authorizedEmailsCiphertext) {
+      const decryptedEmails = new DataGoogleKmsSecret(
+        this,
+        "authorized-emails",
+        {
+          cryptoKey: `${config.curiostack.project}/global/terraform/secrets`,
+          ciphertext: config.authorizedEmailsCiphertext,
+        },
+      );
+      frontendServerEnv.AUTHORIZATION_EMAILS = decryptedEmails.plaintext;
+    }
+
     const frontendServer = new CurioStackService(this, {
       name: "frontend-server",
       public: true,
-      timeout: "3600s",
+      timeout: "300s",
       env: frontendServerEnv,
       envSecrets: {
         GEMINI_API_KEY: geminiApiKeySecretVersion,
@@ -132,20 +199,21 @@ export class Apps extends Construct {
       member: frontendServer.serviceAccount.member,
     });
 
-    const aiPredictor = new ProjectIamCustomRole(this, "ai-predictor", {
-      project,
-      roleId: "aiPredictor",
-      title: "AI Predictor",
-      description: "Permission to perform predictions with managed AI models.",
-      permissions: [
-        "aiplatform.endpoints.predict",
-        "aiplatform.cachedContents.create",
-      ],
-    });
-
     new ProjectIamMember(this, "frontend-server-vertexai", {
       project,
       role: aiPredictor.name,
+      member: frontendServer.serviceAccount.member,
+    });
+
+    new ServiceAccountIamMember(this, "frontend-server-act-as-task-invoker", {
+      serviceAccountId: taskInvoker.name,
+      role: "roles/iam.serviceAccountUser",
+      member: frontendServer.serviceAccount.member,
+    });
+
+    new CloudTasksQueueIamMember(this, "tasks-queue-invoker", {
+      name: tasksQueue.name,
+      role: "roles/cloudtasks.enqueuer",
       member: frontendServer.serviceAccount.member,
     });
   }
