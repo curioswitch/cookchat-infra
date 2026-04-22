@@ -1,9 +1,9 @@
-import { DiscoveryEngineDataStore } from "@cdktf/provider-google/lib/discovery-engine-data-store/index.js";
-import { DiscoveryEngineSearchEngine } from "@cdktf/provider-google/lib/discovery-engine-search-engine/index.js";
-import { FirestoreDatabase } from "@cdktf/provider-google/lib/firestore-database/index.js";
-import { FirestoreField } from "@cdktf/provider-google/lib/firestore-field/index.js";
-import { FirestoreIndex } from "@cdktf/provider-google/lib/firestore-index/index.js";
-import { ProjectService } from "@cdktf/provider-google/lib/project-service/index.js";
+import { DiscoveryEngineDataStore } from "@cdktn/provider-google/lib/discovery-engine-data-store/index.js";
+import { DiscoveryEngineSearchEngine } from "@cdktn/provider-google/lib/discovery-engine-search-engine/index.js";
+import { FirestoreDatabase } from "@cdktn/provider-google/lib/firestore-database/index.js";
+import { FirestoreField } from "@cdktn/provider-google/lib/firestore-field/index.js";
+import { FirestoreIndex } from "@cdktn/provider-google/lib/firestore-index/index.js";
+import { ProjectService } from "@cdktn/provider-google/lib/project-service/index.js";
 import { Construct } from "constructs";
 
 export class Database extends Construct {

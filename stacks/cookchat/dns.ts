@@ -1,5 +1,5 @@
-import { DataGoogleDnsManagedZone } from "@cdktf/provider-google/lib/data-google-dns-managed-zone/index.js";
-import { DnsRecordSet } from "@cdktf/provider-google/lib/dns-record-set/index.js";
+import { DataGoogleDnsManagedZone } from "@cdktn/provider-google/lib/data-google-dns-managed-zone/index.js";
+import { DnsRecordSet } from "@cdktn/provider-google/lib/dns-record-set/index.js";
 import { Construct } from "constructs";
 
 export interface DnsConfig {

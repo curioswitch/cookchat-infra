@@ -1,6 +1,6 @@
-import { StorageBucketIamMember } from "@cdktf/provider-google/lib/storage-bucket-iam-member/index.js";
-import { StorageBucket } from "@cdktf/provider-google/lib/storage-bucket/index.js";
-import type { CurioStack } from "@curioswitch/cdktf-constructs";
+import { StorageBucket } from "@cdktn/provider-google/lib/storage-bucket/index.js";
+import { StorageBucketIamMember } from "@cdktn/provider-google/lib/storage-bucket-iam-member/index.js";
+import type { CurioStack } from "@curioswitch/cdktn-constructs";
 import { Construct } from "constructs";
 
 export interface StorageConfig {

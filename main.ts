@@ -1,4 +1,5 @@
-import { App } from "cdktf";
+import { App } from "cdktn";
+
 import { CookchatStack } from "./stacks/cookchat/index.js";
 import { SysadminStack } from "./stacks/sysadmin/index.js";
 

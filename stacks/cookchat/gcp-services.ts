@@ -1,4 +1,4 @@
-import { ProjectService } from "@cdktf/provider-google/lib/project-service/index.js";
+import { ProjectService } from "@cdktn/provider-google/lib/project-service/index.js";
 import { Construct } from "constructs";
 
 export interface GcpServicesConfig {

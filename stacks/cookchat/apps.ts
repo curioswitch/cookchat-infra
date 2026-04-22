@@ -1,21 +1,22 @@
-import { ApikeysKey } from "@cdktf/provider-google/lib/apikeys-key/index.js";
-import { CloudRunServiceIamMember } from "@cdktf/provider-google/lib/cloud-run-service-iam-member/index.js";
-import { CloudTasksQueueIamMember } from "@cdktf/provider-google/lib/cloud-tasks-queue-iam-member/index.js";
-import { CloudTasksQueue } from "@cdktf/provider-google/lib/cloud-tasks-queue/index.js";
-import { DataGoogleKmsSecret } from "@cdktf/provider-google/lib/data-google-kms-secret/index.js";
-import { ProjectIamCustomRole } from "@cdktf/provider-google/lib/project-iam-custom-role/index.js";
-import { ProjectIamMember } from "@cdktf/provider-google/lib/project-iam-member/index.js";
-import { SecretManagerSecretVersion } from "@cdktf/provider-google/lib/secret-manager-secret-version/index.js";
-import { SecretManagerSecret } from "@cdktf/provider-google/lib/secret-manager-secret/index.js";
-import { ServiceAccountIamMember } from "@cdktf/provider-google/lib/service-account-iam-member/index.js";
-import { ServiceAccount } from "@cdktf/provider-google/lib/service-account/index.js";
-import { StorageBucketIamMember } from "@cdktf/provider-google/lib/storage-bucket-iam-member/index.js";
-import type { StorageBucket } from "@cdktf/provider-google/lib/storage-bucket/index.js";
+import { ApikeysKey } from "@cdktn/provider-google/lib/apikeys-key/index.js";
+import { CloudRunServiceIamMember } from "@cdktn/provider-google/lib/cloud-run-service-iam-member/index.js";
+import { CloudTasksQueue } from "@cdktn/provider-google/lib/cloud-tasks-queue/index.js";
+import { CloudTasksQueueIamMember } from "@cdktn/provider-google/lib/cloud-tasks-queue-iam-member/index.js";
+import { DataGoogleKmsSecret } from "@cdktn/provider-google/lib/data-google-kms-secret/index.js";
+import { ProjectIamCustomRole } from "@cdktn/provider-google/lib/project-iam-custom-role/index.js";
+import { ProjectIamMember } from "@cdktn/provider-google/lib/project-iam-member/index.js";
+import { SecretManagerSecret } from "@cdktn/provider-google/lib/secret-manager-secret/index.js";
+import { SecretManagerSecretVersion } from "@cdktn/provider-google/lib/secret-manager-secret-version/index.js";
+import { ServiceAccount } from "@cdktn/provider-google/lib/service-account/index.js";
+import { ServiceAccountIamMember } from "@cdktn/provider-google/lib/service-account-iam-member/index.js";
+import type { StorageBucket } from "@cdktn/provider-google/lib/storage-bucket/index.js";
+import { StorageBucketIamMember } from "@cdktn/provider-google/lib/storage-bucket-iam-member/index.js";
 import {
   type CurioStack,
   CurioStackService,
-} from "@curioswitch/cdktf-constructs";
+} from "@curioswitch/cdktn-constructs";
 import { Construct } from "constructs";
+
 import type { GcpServices } from "./gcp-services.js";
 
 export interface AppsConfig {

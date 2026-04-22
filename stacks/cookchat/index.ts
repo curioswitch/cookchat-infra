@@ -1,9 +1,10 @@
-import { GoogleFirebaseHostingCustomDomain } from "@cdktf/provider-google-beta/lib/google-firebase-hosting-custom-domain/index.js";
-import { GoogleBetaProvider } from "@cdktf/provider-google-beta/lib/provider/index.js";
-import { GoogleProvider } from "@cdktf/provider-google/lib/provider/index.js";
-import { CurioStack, CurioStackHosting } from "@curioswitch/cdktf-constructs";
-import { GcsBackend, TerraformStack } from "cdktf";
+import { GoogleProvider } from "@cdktn/provider-google/lib/provider/index.js";
+import { GoogleFirebaseHostingCustomDomain } from "@cdktn/provider-google-beta/lib/google-firebase-hosting-custom-domain/index.js";
+import { GoogleBetaProvider } from "@cdktn/provider-google-beta/lib/provider/index.js";
+import { CurioStack, CurioStackHosting } from "@curioswitch/cdktn-constructs";
+import { GcsBackend, TerraformStack } from "cdktn";
 import type { Construct } from "constructs";
+
 import { Apps } from "./apps.js";
 import { Database } from "./database.js";
 import { Dns } from "./dns.js";

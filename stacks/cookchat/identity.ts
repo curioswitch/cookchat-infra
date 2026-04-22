@@ -1,5 +1,5 @@
-import { DataGoogleKmsSecret } from "@cdktf/provider-google/lib/data-google-kms-secret/index.js";
-import { IdentityPlatformDefaultSupportedIdpConfig } from "@cdktf/provider-google/lib/identity-platform-default-supported-idp-config/index.js";
+import { DataGoogleKmsSecret } from "@cdktn/provider-google/lib/data-google-kms-secret/index.js";
+import { IdentityPlatformDefaultSupportedIdpConfig } from "@cdktn/provider-google/lib/identity-platform-default-supported-idp-config/index.js";
 import { Construct } from "constructs";
 
 export interface IdentityConfig {
