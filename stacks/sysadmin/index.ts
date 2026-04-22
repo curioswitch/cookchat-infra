@@ -3,6 +3,7 @@ import { GoogleBetaProvider } from "@cdktf/provider-google-beta/lib/provider/ind
 import { DataGoogleBillingAccount } from "@cdktf/provider-google/lib/data-google-billing-account/index.js";
 import { DataGoogleOrganization } from "@cdktf/provider-google/lib/data-google-organization/index.js";
 import { GoogleProvider } from "@cdktf/provider-google/lib/provider/index.js";
+import { RandomProvider } from "@cdktf/provider-random/lib/provider/index.js";
 import { Bootstrap } from "@curioswitch/cdktf-constructs";
 import { GcsBackend, TerraformStack } from "cdktf";
 import type { Construct } from "constructs";
@@ -19,6 +20,8 @@ export class SysadminStack extends TerraformStack {
       project: "cookchat-sysadmin",
       region: "asia-northeast1",
     });
+
+    new RandomProvider(this, "random");
 
     const googleBeta = new GoogleBetaProvider(this, "google-beta", {
       project: "cookchat-sysadmin",
