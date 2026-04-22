@@ -13,7 +13,7 @@ concurrency:
 jobs:
   plan:
     if: github.event.pull_request.head.repo.fork != true
-    uses: curioswitch/cdktf-actions/.github/workflows/pr.yaml@c58ab526bff81207e69e2e94061b630baa67edf3
+    uses: curioswitch/cdktn-actions/.github/workflows/pr.yaml@07dea324a8add16c5a4fa02718cc0ed67499826a
     with:
       gcp_project_id: ${{ vars.GCP_PROJECT_ID_DEV }}
       gcp_project_number: ${{ vars.GCP_PROJECT_NUMBER_DEV }}
