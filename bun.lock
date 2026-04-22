@@ -9,7 +9,7 @@
         "@cdktn/provider-google": "^17.0.0",
         "@cdktn/provider-google-beta": "^17.0.0",
         "@cdktn/provider-random": "^13.0.0",
-        "@curioswitch/cdktf-constructs": "github:curioswitch/cdktn-constructs#main",
+        "@curioswitch/cdktn-constructs": "github:curioswitch/cdktn-constructs#main",
         "cdktn": "^0.23.0-pre.29",
         "constructs": "^10.6.0",
       },
@@ -75,7 +75,7 @@
 
     "@cdktn/provider-schema": ["@cdktn/provider-schema@0.23.0-pre.29", "", { "dependencies": { "@cdktn/commons": "0.23.0-pre.29", "@cdktn/hcl2json": "0.23.0-pre.29", "deepmerge": "4.3.1", "fs-extra": "11.3.4" } }, "sha512-es2iBi3UrWWYLGmYweh+R1sLCHzeddQ/YQxsRDokGqNCcQOOv3ezPKyElmpjNbIOzSQi1lq0eACEWzE1JasKLw=="],
 
-    "@curioswitch/cdktf-constructs": ["@curioswitch/cdktn-constructs@github:curioswitch/cdktn-constructs#dbaba45", { "peerDependencies": { "@cdktn/provider-github": "^16.0.0", "@cdktn/provider-google": "^17.0.0", "@cdktn/provider-google-beta": "^17.0.0", "@cdktn/provider-random": "^13.0.0", "cdktn": "^0.23.0-pre.29", "constructs": "^10.6.0" } }, "curioswitch-cdktn-constructs-dbaba45", "sha512-xxW/WddEAlEmI9C7V+/0BFzgRL+E9K8oZKsyOuWIgW/Tlrrvo5JVEM39ZuNSKeq/lMh7b1mzPPykAHwVidAXkg=="],
+    "@curioswitch/cdktn-constructs": ["@curioswitch/cdktn-constructs@github:curioswitch/cdktn-constructs#dbaba45", { "peerDependencies": { "@cdktn/provider-github": "^16.0.0", "@cdktn/provider-google": "^17.0.0", "@cdktn/provider-google-beta": "^17.0.0", "@cdktn/provider-random": "^13.0.0", "cdktn": "^0.23.0-pre.29", "constructs": "^10.6.0" } }, "curioswitch-cdktn-constructs-dbaba45", "sha512-xxW/WddEAlEmI9C7V+/0BFzgRL+E9K8oZKsyOuWIgW/Tlrrvo5JVEM39ZuNSKeq/lMh7b1mzPPykAHwVidAXkg=="],
 
     "@inquirer/checkbox": ["@inquirer/checkbox@1.5.2", "", { "dependencies": { "@inquirer/core": "^6.0.0", "@inquirer/type": "^1.1.6", "ansi-escapes": "^4.3.2", "chalk": "^4.1.2", "figures": "^3.2.0" } }, "sha512-CifrkgQjDkUkWexmgYYNyB5603HhTHI91vLFeQXh6qrTKiCMVASol01Rs1cv6LP/A2WccZSRlJKZhbaBIs/9ZA=="],
 
